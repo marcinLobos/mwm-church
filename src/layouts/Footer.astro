@@ -11,13 +11,13 @@ const give = siteConfig?.data.footer?.give;
 
 const RESEND_SEGMENT_ID = import.meta.env.RESEND_SEGMENT_ID;
 const RESEND_API_KEY = import.meta.env.RESEND_API_KEY;
----
-<!-- fddfd  
 
-<footer class="bg-secondary text-secondary-foreground layout-base py-8">
-  <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+
+<footer class="bg-secondary text-secondary-foreground layout-base py-12 border-t border-white/10">
+  <div class="grid gap-8 md:grid-cols-2">
     <section class="flex flex-col gap-8">
-      <h2 class="sr-only">Address & Contact Info</h2>
+      <h2 class="text-2xl font-bold uppercase tracking-tighter">MWM Architekci</h2>
       {
         left?.sections &&
           left.sections.map((section) => (
@@ -25,67 +25,43 @@ const RESEND_API_KEY = import.meta.env.RESEND_API_KEY;
               <StyledText
                 as="h3"
                 variant="heading"
-                className="pb-2"
+                className="pb-2 text-sm uppercase tracking-widest text-gray-500"
                 set:html={section.heading}
               />
-              <div set:html={section.description} />
+              <div class="text-lg font-light" set:html={section.description} />
             </div>
           ))
       }
 
       {
         left?.social && left.social.length > 0 && (
-          <SocialMediaLinks social={left.social} client:idle />
+          <div class="pt-4">
+            <SocialMediaLinks social={left.social} client:idle />
+          </div>
         )
       }
     </section>
 
-    {
-      form?.isActive &&
-        (RESEND_SEGMENT_ID && RESEND_API_KEY ? (
-          <section class="flex flex-col gap-4">
-            <div class="flex flex-col gap-2">
-              <StyledText as="h2" variant="heading" set:html={form.heading} />
-              <div set:html={form.description} />
-            </div>
-            <SubscribeForm client:idle />
-          </section>
-        ) : (
-          <section class="flex flex-col gap-4">
-            <div class="flex flex-col gap-2">
-              <StyledText
-                as="h2"
-                variant="heading"
-                className="text-destructive"
-              >
-                ERROR: Missing RESEND_API_KEY or RESEND_SEGMENT_ID. Check site
-                config.
-              </StyledText>
-            </div>
-          </section>
-        ))
-    }
-
-    {
-      give?.isActive && (
-        <section class="flex flex-col gap-4">
-          <div class="flex flex-col gap-2">
-            <StyledText as="h2" variant="heading" set:html={give.heading} />
-            <div set:html={give.description} />
-          </div>
-          {give.link && (
-            <ButtonLink
-              target="_blank"
-              rel="noopener noreferrer"
-              href={give.link}
-              variant="footer-button"
-            >
-              Give
-            </ButtonLink>
-          )}
-        </section>
-      )
-    }
+    <section class="flex flex-col justify-end md:items-end text-right">
+       <div class="max-w-xs">
+          <p class="text-xs text-gray-500 font-mono leading-relaxed">
+            // STATUS: 2026_PROTOTYPE_ACTIVE <br/>
+            // CORE: ASTRO_FRAMEWORK <br/>
+            // DESIGN: MWM_REV_01
+          </p>
+          <p class="mt-4 italic text-sm text-gray-400">
+            "Architektura to jedyna prawda o planecie."
+          </p>
+       </div>
+    </section>
   </div>
 </footer>
--->
+
+
+
+
+
+
+
+
+
